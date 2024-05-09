@@ -1,0 +1,221 @@
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url("./fonts/UbuntuMono-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Ubuntu Condensed";
+    src: url("./fonts/UbuntuCondensed-Regular.ttf");
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: "Ubuntu";
+    color: #eee;
+    background-color: #000;
+    background-image:  linear-gradient(#222 2px, transparent 2px), linear-gradient(90deg, #222 2px, transparent 2px), linear-gradient(#222 1px, transparent 1px), linear-gradient(90deg, #222 1px, #000 1px);
+    background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Ubuntu Condensed";
+}
+
+h2 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+.hero, .about, .experience {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.hero, .about, .experience, .contact {
+    background: #111;
+}
+
+.hero {
+    background: linear-gradient(#11111100, #111111ff 75%);
+}
+
+.hero div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.hero p {
+    font-size: 2rem;
+}
+
+.hero h1 {
+    font-size: 8rem;
+}
+
+.hero .links {
+    display: flex;
+    flex-direction: row;
+}
+
+.hero a {
+    font-size: 1rem;
+    width: 100%;
+    color: #eee;
+    text-decoration: none;
+}
+
+.hero img {
+    width: 50vh;
+    aspect-ratio: 1 / 1;
+    border-radius: 999px;
+}
+
+.about ul {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.about div:nth-child(2) div {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.about div:nth-child(2) div div {
+    width: 25vh;
+    aspect-ratio: 1 / 1;
+}
+
+.about div:nth-child(2) div div:nth-child(1) {
+    background: #FFD966;
+    border-radius: 5vh;
+}
+.about div:nth-child(2) div div:nth-child(2) {
+    background: #9DC3E6;
+    border-radius: 25vh;
+}
+.about div:nth-child(2) div div:nth-child(3) {
+    background: #7030A0;
+    border-radius: 25vh 5vh 5vh 5vh;
+}
+.about div:nth-child(2) div div:nth-child(4) {
+    background: #548235;
+    border-radius: 5vh 25vh 5vh 25vh;
+}
+
+.experience .img-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    gap: 5vh;
+}
+
+.experience img {
+    height: 15vh;
+}
+
+.experience img:nth-child(5) {
+    grid-column: span 2;
+}
+
+.experience ul {
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    list-style: none;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.contact div {
+    width: 400px;
+}
+
+.contact h2 {
+    text-align: center;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact input, .contact textarea {
+    font-family: "Ubuntu";
+    font-size: 1.25rem;
+    color: #eee;
+    padding: 0.5rem;
+    background: #333;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.contact textarea {
+    height: 10rem;
+    resize: none;
+}
+
+.contact button {
+    font-family: "Ubuntu Condensed";
+    font-size: 1.25rem;
+    color: #eee;
+    padding: 0.5rem 1rem;
+    background: #7030A0;
+    border: none;
+    border-radius: 0.25rem;
+}
+
+@media (max-width: 1024px) {
+    .hero, .about, .experience, .contact {
+        flex-direction: column-reverse;
+    }
+    .hero {
+        text-align: center;
+    }
+    .hero img {
+        width: 25vw;
+        height: 25vw;
+    }
+    .hero h1 {
+        font-size: 4rem;
+    }
+    h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    .about div:nth-child(2) div div {
+        width: 10vw;
+        aspect-ratio: 1 / 1;
+    }
+    .about ul, .experience ul {
+        text-align: center;
+        font-size: 1rem;
+        list-style: none;
+    }
+    .experience img {
+        height: 10vw;
+    }
+    .contact div {
+        width: 70%;
+    }
+}
