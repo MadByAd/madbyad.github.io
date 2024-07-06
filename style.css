@@ -246,6 +246,10 @@ h2 {
     .contact div {
         width: 70%;
     }
+    .links {
+        flex-direction: column !important;
+        gap: 1rem;
+    }
 }
 
 @media (max-width: 512px) {
