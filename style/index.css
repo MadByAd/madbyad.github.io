@@ -1,0 +1,193 @@
+
+@font-face {
+    font-family: UbuntuMono;
+    src: url("./../fonts/UbuntuMono-Bold.ttf");
+}
+
+@font-face {
+    font-family: Ubuntu;
+    src: url("./../fonts/UbuntuSans-Medium.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: white;
+    color: #222;
+    font-family: Ubuntu;
+    line-height: 1.5;
+}
+
+h1, h2 {
+    font-family: UbuntuMono;
+}
+
+@keyframes head__background {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+.head {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    background-image: linear-gradient(135deg, rgba(223, 123, 248, 0.5) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.6) 70%, rgba(255, 245, 108, 0.5) 100%), url("./../image/MegaMendung.jpg");
+    background-position: 0 0%;
+    animation: head__background 120s infinite linear;
+}
+
+.head--content {
+    width: 512px;
+}
+
+.head--content h1 {
+    font-size: 4.75rem;
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+}
+
+@property --angle{
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 135deg;
+}
+
+@property --color-one{
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #740081;
+}
+
+@property --color-two{
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #818300;
+}
+
+
+.head--content .head--gradient {
+    background: -webkit-linear-gradient(var(--angle), var(--color-one), var(--color-two));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: head__gradient 15s infinite;
+}
+
+@keyframes head__gradient {
+    0% {
+        --angle: 135deg;
+        --color-one: #740081;
+        --color-two: #818300;
+    }
+    50% {
+        --angle: 45deg;
+        --color-one: #812f00;
+        --color-two: #002383;
+    }
+    100% {
+        --angle: 135deg;
+        --color-one: #740081;
+        --color-two: #818300;
+    }
+}
+
+.head--content p {
+    font-size: 1.5rem;
+    line-height: 1.75;
+    text-shadow: 0 0 2px white;
+}
+
+.head--image {
+    position: relative;
+    width: 512px;
+    height: 512px;
+}
+
+.head--image img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    aspect-ratio: 1 / 1;
+    width: 384px;
+    height: 384px;
+    border-radius: 100%;
+    box-shadow: 0 0 40px 10px #ccc;
+}
+
+.head--image img:nth-child(1) {
+    transform: translate(-20%, -80%);
+}
+
+.head--image img:nth-child(2) {
+    transform: translate(-80%, -20%);
+}
+
+
+.content {
+    background: white;
+    margin-top: calc(100vh + 60px);
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+}
+
+.content::before {
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    background: linear-gradient(#fff0, #fff);
+    width: 100%;
+    height: 60px;
+}
+
+.content--lists {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 512px;
+    margin: 0 auto;
+    padding: 40px 0 0 0;
+}
+
+.content--lists h2 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.content--card {
+    display: grid;
+    grid-template-columns: 1fr 64px;
+    gap: 10px;
+    padding: 20px;
+    color: #222;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: white;
+    transition: 0.5s;
+}
+
+.content--card img {
+    grid-row: span 2;
+    width: 64px;
+    height: 64px;
+}
+
+.content--card:hover, .content--card:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    scale: 105%;
+}

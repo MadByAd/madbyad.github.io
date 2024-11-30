@@ -3,15 +3,80 @@
 <head>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MadByAd | Home</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <meta name="description" content="Welcome to MadByAd Link Directory">
+    <meta name="keywords" content="MadByAd, Adit, Aditya, Aditya Wahyu Santoso">
+    <title>MadByAd | Link Directory</title>
+
+    <link rel="stylesheet" href="./style/index.css">
 
 </head>
 <body>
 
-    <h1>Hello This is MadByAd 👋</h1>
+    <div class="head" id="head">
+        <div class="head--content">
+            <h1>Hello This is <span style="background: #fff9; border-radius: 10px; padding: 0 1rem;"><span class="head--gradient">MadByAd</span></span> 👋</h1>
+            <p>Welcome to my link directory 🙌. <br> This is where i put links 🔗 to my other social media account or my projects & products</p>
+        </div>
+        <div class="head--image">
+            <img src="./image/Aditya.png" alt="photograph of Aditya Wahyu Santoso">
+            <img src="./image/MadByAd.png" alt="Logo of the personal brand (MadByAd)">
+        </div>
+    </div>
 
-    <p>Sorry, but currently this website is undergoing changes</p>
+    <div class="content" id="content">
+        <div class="content--lists">
+            <h2>My Links 🔗</h2>
+            <a class="content--card" target="_blank" href="https://play.google.com/store/apps/dev?id=7894522532614647574">
+                <h3>PLAYSTORE</h3>
+                <img src="./icons/Playstore.svg" alt="Logo of playstore">
+                <p>the place for downloading games for android</p>
+            </a>
+            <a class="content--card" target="_blank" href="https://madbyad.itch.io">
+                <h3>ITCH IO</h3>
+                <img src="./icons/Itch.svg" alt="Logo of itch.io">
+                <p>the place for downloading games for windows</p>
+            </a>
+            <a class="content--card" target="_blank" href="https://github.com/MadByAd">
+                <h3>GITHUB</h3>
+                <img src="./icons/Github.svg" alt="Logo of Github">
+                <p>my main github profile where i put my professional work there</p>
+            </a>
+            <a class="content--card" target="_blank" href="https://github.com/AdityaWs">
+                <h3>GITHUB (PERSONAL)</h3>
+                <img src="./icons/Github.svg" alt="Logo of Github">
+                <p>my personal github page where i put my personal stuff there</p>
+            </a>
+            <a class="content--card" target="_blank" href="https://www.instagram.com/aditya_wahyu_dev/">
+                <h3>INSTAGRAM</h3>
+                <img src="./icons/Instagram.svg" alt="Logo of Instagram">
+                <p>my Instagram page where i occasionally post my work there</p>
+            </a>
+        </div>
+    </div>
+
+    <p style="padding: 2rem; text-align: center; color: #555;">Copyright &copy; MadByAd 2024</p>
+
+    <script>
+        window.addEventListener("scroll", (event) => {
+            
+            let head = document.getElementById("head");
+            let head_height = head.clientHeight;
+            let scroll = this.scrollY;
+            let scroll_percentage = 0;
+
+            if (scroll < head_height) {
+                scroll_percentage = 1 - (scroll / head_height * 1.5);
+            } else {
+                scroll_percentage = 0;
+            }
+
+            head.style.opacity = scroll_percentage;
+
+        });
+    </script>
     
 </body>
 </html>
