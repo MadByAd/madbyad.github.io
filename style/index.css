@@ -160,7 +160,7 @@ h1, h2 {
     width: 100%;
     max-width: 512px;
     margin: 0 auto;
-    padding: 40px 0 0 0;
+    padding: 40px 0 0 1rem;
 }
 
 .content--lists h2 {
@@ -190,4 +190,60 @@ h1, h2 {
 .content--card:hover, .content--card:focus {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     scale: 105%;
+}
+
+@media only screen and (max-width: 1440px) {
+    .head--image img {
+        width: 256px;
+        height: 256px;
+    }
+    .head h1 {
+        font-size: 3rem;
+    }
+    .head p {
+        font-size: 1.25rem;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .head {
+        flex-direction: column-reverse;
+        justify-content: start;
+        gap: 32px;
+        padding-top: 10%;
+    }
+    .head--image {
+        width: 50%;
+        height: 256px;
+    }
+    .head--image img {
+        width: 128px;
+        height: 128px;
+    }
+    .head--content {
+        width: calc(100% - 2rem);
+        padding: 1rem;
+    }
+    .head h1 {
+        font-size: 4.5rem;
+    }
+    .head p {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .head h1 {
+        font-size: 3rem;
+    }
+    .head p {
+        font-size: 1.25rem;
+    }
+}
+
+@media only screen and (max-width: 512px) {
+    .content--lists {
+        width: calc(100% - 2rem);
+        margin: 0;
+    }
 }
