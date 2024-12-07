@@ -25,6 +25,7 @@ h1, h2 {
     font-family: UbuntuMono;
 }
 
+
 @keyframes head__background {
     0% {
         background-position: 0% 0%;
@@ -134,6 +135,45 @@ h1, h2 {
     transform: translate(-80%, -20%);
 }
 
+.head--link {
+    display: block;
+    background: white;
+    padding: 1rem;
+    text-decoration: none;
+    color: #740081;
+}
+
+.head--directory {
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+@keyframes scroll__info {
+    0% {
+        transform: translate(-50%, -1rem);
+    }
+    50% {
+        transform: translate(-50%, -2rem);
+    }
+    100% {
+        transform: translate(-50%, -1rem);
+    }
+}
+
+.scroll--info {
+    font-family: UbuntuMono;
+    font-size: 1.2rem;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -1rem);
+    animation: scroll__info 2s infinite;
+}
+
 
 .content {
     background: white;
@@ -192,6 +232,13 @@ h1, h2 {
     scale: 105%;
 }
 
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin-top: 1rem;
+}
+
+
 @media only screen and (max-width: 1440px) {
     .head--image img {
         width: 256px;
@@ -214,7 +261,7 @@ h1, h2 {
     }
     .head--image {
         width: 50%;
-        height: 256px;
+        height: 200px;
     }
     .head--image img {
         width: 128px;
@@ -222,6 +269,7 @@ h1, h2 {
     }
     .head--content {
         width: calc(100% - 2rem);
+        max-width: 512px;
         padding: 1rem;
     }
     .head h1 {
