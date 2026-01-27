@@ -225,6 +225,7 @@ h1, h2 {
     grid-row: span 2;
     width: 64px;
     height: 64px;
+    object-fit: contain;
 }
 
 .content--card:hover, .content--card:focus {
