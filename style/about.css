@@ -80,3 +80,13 @@ h2 {
     max-width: 275px;
     filter: drop-shadow(0 0 2px black);
 }
+
+@media (max-width: 900px) {
+    .about {
+        flex-direction: column-reverse;
+        padding: 2rem;
+    }
+    .about--image {
+        text-align: center;
+    }
+}
