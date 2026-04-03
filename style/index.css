@@ -239,6 +239,14 @@ hr {
     margin-top: 1rem;
 }
 
+.button {
+    padding: 1rem;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    width: fit-content;
+    text-decoration: none;
+}
 
 @media only screen and (max-width: 1440px) {
     .head--image img {

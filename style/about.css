@@ -81,6 +81,25 @@ h2 {
     filter: drop-shadow(0 0 2px black);
 }
 
+.card, .button {
+    padding: 1rem;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.card-separator {
+    margin: 0.5rem 0 1rem 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+.button {
+    border-radius: 16px;
+    width: fit-content;
+    text-decoration: none;
+}
+
 @media (max-width: 900px) {
     .about {
         flex-direction: column-reverse;
