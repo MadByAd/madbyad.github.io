@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hello This is MadByAd, Stands for Made By Aditya. Im a programmer who makes game and sometimes creative art. Welcome to my Developer Site">
+    <meta name="keywords" content="MadByAd, Adit, Aditya, Aditya Wahyu Santoso">
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="EjzhAJgRePMoEl7Ylu9xBCjjLcukyn7zj8WJ8z9_uvU" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <title>My Projects | MadByAd - Game & Web Developer</title>.
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="My Projects | MadByAd">
+    <meta property="og:description" content="Learn more about the projects i have worked on and made!">
+    <meta property="og:image" content="https://madbyad.my.id/image/MadByAd.png">
+
+    <link rel="stylesheet" href="./style/about.css">
+
+</head>
+<body>
+
+    <style>
+        #projects-container {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        #projects-container > div {
+            max-width: 450px;
+            width: 100%;
+        }
+        #projects-container > div img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            image-rendering: optimizeQuality;
+        }
+    </style>
+
+    <div class="background" style="position: absolute;"></div>
+    <div style="
+        z-index: -1;
+        position: relative;
+        top: 0;
+        left: 0;
+    ">
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            margin-top: calc(50vh - 32px);
+            background: white;
+            border-top: 1px solid gainsboro;
+        "></div>
+    </div>
+
+    <main class="about--content" style="
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        ">
+        <a class="button" href="./index.html#content">← Back to Home Page</a>
+        <h1 style="font-size: 2rem;">🛠️ My Projects & Creation</h1>
+        <div class="card" style="max-width: 450px;">
+            <p>
+                Over the past several years, i have created a bunch of games, websites, tools, and even work of art.
+                All of my creation i compiled into this one place
+            </p>
+        </div>
+        <div id="projects-container"></div>
+        <a class="button" href="./index.html#content">← Back to Home Page</a>
+        <div class="card"><small>&copy; 2026 MadByAd</small></div>
+    </main>
+
+    <script>
+        async function getItchData(itchUrl, card) {
+            try {
+                const jsonUrl = itchUrl.endsWith('/') ? `${itchUrl}data.json` : `${itchUrl}/data.json`;
+                const response = await fetch(jsonUrl);
+                const data = await response.json();
+                card.innerHTML = `<img src="${data.cover_image}">` + card.innerHTML;
+            } catch (e) {
+                console.error("Itch API error:", e);
+                return null;
+            }
+        }
+
+        async function getReadmeSnippet(repoLink, card) {
+            try {
+                const rawUrl = repoLink.replace('github.com', 'raw.githubusercontent.com') + '/main/README.md';
+                const response = await fetch(rawUrl);
+                if (!response.ok) return null;
+
+                const text = await response.text();
+                const lines = text.split('\n');
+
+                for (let line of lines) {
+                    let cleanLine = line.trim();
+
+                    if (cleanLine == "") continue;
+                    if (cleanLine.startsWith('#')) continue;
+                    if (cleanLine.startsWith('!')) continue;
+                    if (cleanLine.startsWith('<')) continue;
+                    if (cleanLine.startsWith('[')) continue;
+
+                    card.querySelector(".project-description").innerHTML = snarkdown(cleanLine);
+                    return
+                }
+                return null;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        async function loadProjects() {
+            const username = 'madbyad';
+            const url = `https://raw.githubusercontent.com/madbyad/.github/main/profile/README.md`;
+            const container = document.getElementById('projects-container');
+
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                const lines = text.split('\n');
+                const projectRows = lines.filter(line => line.trim().startsWith('|')).slice(2);
+
+                projectRows.forEach(row => {
+                    const cols = row.split('|').map(c => c.trim()).filter(c => c !== "");
+
+                    if (cols.length >= 3) {
+                        const title = cols[0];
+                        const type = cols[1].replace(/\*/g, '');
+                        const extractLink = (str) => {
+                            const match = str.match(/\((https?:\/\/[^\)]+)\)/);
+                            return match ? match[1] : null;
+                        };
+
+                        const projectLink = extractLink(cols[2]);
+                        const repoLink = cols[3] ? extractLink(cols[3]) : null;
+                        const card = document.createElement('div');
+                        card.className = 'card';
+                        card.innerHTML = `
+                            <h3>${title}</h3>
+                            <p class="project-type">${type}</p>
+                            <hr class="card-separator">
+                            <small class="project-description"></small>
+                            <a href="${projectLink}" class="project-link" target="_blank" rel="noopener">See Project 👁️</a>
+                            ${repoLink ? `<a href="${repoLink}" class="project-link" target="_blank">See Repository 📂</a>` : ''}
+                        `;
+                        container.appendChild(card);
+
+                        if (projectLink.startsWith("https://madbyad.itch.io/")) {
+                            getItchData(projectLink, card);
+                        }
+                        if (repoLink != null && repoLink.startsWith("https://github.com/")) {
+                            getReadmeSnippet(repoLink, card);
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error("Failed to fetch README:", error);
+            }
+        }
+
+        loadProjects();
+    </script>
+
+</body>
+</html>

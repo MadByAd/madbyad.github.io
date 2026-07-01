@@ -103,7 +103,7 @@ h2 {
 @media (max-width: 900px) {
     .about {
         flex-direction: column-reverse;
-        padding: 2rem;
+        padding: 1rem;
     }
     .about--image {
         text-align: center;

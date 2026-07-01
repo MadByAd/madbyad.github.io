@@ -3,25 +3,46 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=7">
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Hello This is MadByAd, Stands for Made By Aditya. Im a programmer who makes game and sometimes creative art. Welcome to my Developer Site">
     <meta name="keywords" content="MadByAd, Adit, Aditya, Aditya Wahyu Santoso">
+    <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="EjzhAJgRePMoEl7Ylu9xBCjjLcukyn7zj8WJ8z9_uvU" />
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-    <title>About Me</title>
+    <title>About Me | MadByAd - Game & Web Developer</title>.
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About Me | MadByAd">
+    <meta property="og:description" content="Learn more about Aditya Wahyu Santoso (MadByAd), my programming journey, and my games portfolio.">
+    <meta property="og:image" content="./image/Aditya Full Suit.png">
 
     <link rel="stylesheet" href="./style/about.css">
 
 </head>
 <body>
 
-    <div class="background"></div>
+    <div class="background" style="position: absolute;"></div>
+    <div style="
+        z-index: -1;
+        position: relative;
+        top: 0;
+        left: 0;
+    ">
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            margin-top: 50vh;
+            background: white;
+            border-top: 1px solid gainsboro;
+        "></div>
+    </div>
 
     <div class="about">
         <div class="about--content">
-            <a class="button" href="./index.html">← Back to Home Page</a>
+            <a class="button" href="./index.html#content">← Back to Home Page</a>
             <div class="card">
                 <h1>ℹ️ About Me</h1>
                 <hr class="card-separator">
@@ -46,7 +67,7 @@
                 </p>
             </div>
             <div class="card">
-                <h2>📜 My Portofolio</h2>
+                <h2>📜 My Portfolio</h2>
                 <p>
                     i have 2 games that i think is the best creation of mine, one is released in
                     <a href="https://playstore.madbyad.my.id">PlayStore</a> and the other on 
@@ -61,12 +82,15 @@
                     you maybe check it out a bit?
                 </p>
             </div>
-            <a class="button" href="./index.html">← Back to Home Page</a>
+            <div class="card"><small>&copy; 2026 MadByAd</small></div>
+            <a class="button" href="./index.html#content">← Back to Home Page</a>
         </div>
         <div class="about--image">
-            <img src="./image/Aditya Full Suit.png" alt="A picture of me in suit taken from a high angle shot">
+            <img src="./image/Aditya Full Suit.png" alt="A picture of me in suit taken from a high angle shot" width="200px">
+            <div class="card">Aditya Wahyu Santoso</div>
         </div>
     </div>
+
 
 </body>
 </html>

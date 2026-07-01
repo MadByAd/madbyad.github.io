@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://madbyad.my.id/sitemap.xml
