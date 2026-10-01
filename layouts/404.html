@@ -1,0 +1,10 @@
+{{ define "main" }}
+<div class="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
+  <h1 class="text-6xl font-bold mb-4">404</h1>
+  <h2 class="text-2xl font-semibold mb-2">Page Not Found</h2>
+  <p class="mb-8">Sorry, the page you are looking for doesn't exist or has been moved.</p>
+  <a href="{{ .Site.Home.RelPermalink }}" class="px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-zinc-700 transition-colors">
+    Back to Homepage
+  </a>
+</div>
+{{ end }}

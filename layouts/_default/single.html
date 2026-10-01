@@ -1,0 +1,17 @@
+{{ define "main" }}
+
+<div class="w-full h-[70px]"></div>
+
+<h1>{{ .Title }}</h1>
+
+<p>{{ .Date.Format "02 January 2006" }}</p>
+
+{{ with .Params.image }}
+  <img src="{{ . }}" alt="" class="block aspect-1/1 my-[32px] object-cover">
+{{ end }}
+
+<div class="content">
+  {{ .Content }}
+</div>
+
+{{ end }}

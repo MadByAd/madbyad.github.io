@@ -1,0 +1,80 @@
+{{ define "main" }}
+
+<div class="w-full h-[70px]"></div>
+
+<h1>Read the News</h1>
+
+<div class="articles">
+  {{ range .Paginator.Pages }}
+    <article>
+
+      {{ with .Params.image }}
+      <img src="{{ . }}" alt="{{ $.Title }}">
+      {{ end }}
+
+      <div class="flex flex-col gap-4">
+
+        <!-- Categories -->
+        {{ with .Params.categories }}
+        <div>
+          {{ range . }}
+            <span>
+              {{ . }}
+            </span>
+          {{ end }}
+        </div>
+        {{ end }}
+
+        <h2>
+          {{ .Title }}
+        </h2>
+
+        <time datetime="{{ .Date.Format "2006-01-02" }}">
+          {{ .Date.Format "2 January 2006" }}
+        </time>
+
+        <p>{{ .Summary }}</p>
+
+        {{ with .Params.tags }}
+          <div>
+            {{ range . }}
+              <span>
+                #{{ . }}
+              </span>
+            {{ end }}
+          </div>
+        {{ end }}
+
+        <a href="{{ .RelPermalink }}">
+          Baca Selengkapnya →
+        </a>
+      </div>
+    </article>
+    <br>
+  {{ end }}
+
+  <!-- Pagination -->
+  <nav>
+    {{ if .Paginator.HasPrev }}
+      <a href="{{ .Paginator.Prev.URL }}">
+        ← Sebelumnya
+      </a>
+    {{ else }}
+      <div></div>
+    {{ end }}
+
+    <span>
+      Halaman {{ .Paginator.PageNumber }} dari {{ .Paginator.TotalPages }}
+    </span>
+
+    {{ if .Paginator.HasNext }}
+      <a href="{{ .Paginator.Next.URL }}">
+        Selanjutnya →
+      </a>
+    {{ else }}
+      <div></div>
+    {{ end }}
+  </nav>
+</div>
+
+{{ end}}

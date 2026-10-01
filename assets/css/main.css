@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@source "hugo_stats.json";
+
+html {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+}
