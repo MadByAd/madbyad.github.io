@@ -30,6 +30,8 @@ Pumpkin Nights is a horror local multiplayer game where your objectives is to su
 * simple lore
 * local multiplayer feature
 
+---
+
 [Playstore Download](https://play.google.com/store/apps/details?id=indie.mabyad.pumpkinnights&hl=id)
 
 [Itch.Io Download](https://madbyad.itch.io/pumpkin-nights)

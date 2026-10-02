@@ -34,4 +34,6 @@ Use CCTV to monitor the building and a flashlight to scare away any intruder! Th
 
 **NOTES:** all names & entities that are included in the game are part of fiction, simillarities are purely coincidental
 
+---
+
 [Itch.Io Download](https://madbyad.itch.io/scary-corporate-life-simulator)

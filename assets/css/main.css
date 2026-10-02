@@ -11,3 +11,33 @@ html {
   font-optical-sizing: auto;
   overflow-x: hidden;
 }
+
+.content h2, .content h3, .content h4 {
+  font-weight: 600;
+  margin-bottom: 0.25em;
+}
+.content h2 {
+  font-size: 2rem;
+}
+
+.content p {
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.content a {
+  color: var(--color-sky-700);
+  text-decoration: underline;
+}
+
+.content hr {
+  margin-block: 2rem;
+  border: 1px solid var(--color-gray-300);
+  border-top: none;
+}
+
+.content ul {
+  margin-left: 20px;
+  list-style: disc;
+  margin-bottom: 1rem;
+}

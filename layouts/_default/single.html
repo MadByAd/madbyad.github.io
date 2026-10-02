@@ -2,16 +2,40 @@
 
 <div class="w-full h-[70px]"></div>
 
-<h1>{{ .Title }}</h1>
-
-<p>{{ .Date.Format "02 January 2006" }}</p>
-
-{{ with .Params.image }}
-  <img src="{{ . }}" alt="" class="block aspect-1/1 my-[32px] object-cover">
-{{ end }}
-
-<div class="content">
-  {{ .Content }}
+<div class="mx-auto max-w-[800px] pb-32 px-4">
+  <div class="pt-8 pb-16">
+    <a class="px-8 py-3 bg-black text-white font-semibold rounded-full transition hover:bg-sky-600" href="/news/">Back to News</a>
+  </div>
+  <h1 class="md:text-5xl sm:text-4xl text-3xl leading-[125%] font-semibold">{{ .Title }}</h1>
+  <div class="flex flex-wrap gap-2 pt-4 pb-8 md:text-base sm:text-sm text-xs">
+    {{ with .Params.tags }}
+      {{ range . }}
+        <a class="px-8 py-1 bg-gray-100 rounded-full hover:underline" href="/tags/{{ . }}">{{ . }}</a>
+      {{ end }}
+    {{ end }}
+  </div>
+  <div class="flex items-center justify-center gap-4 pt-8 md:text-lg sm:text-base text-sm border-t border-gray-200">
+    {{ with .Params.categories }}
+      {{ $colorMap := dict
+        "company"     "bg-sky-200 text-sky-900"
+        "product"     "bg-emerald-200 text-emerald-900"
+        "development" "bg-purple-200 text-purple-900"
+      }}
+      {{ $defaultColor := "bg-gray-100 text-gray-800" }}
+      {{ range . }}
+        {{ $catKey := . | lower }}
+        {{ $colors := index $colorMap $catKey | default $defaultColor }}
+        <a class="md:px-8 px-4 py-1 font-semibold rounded-full {{ $colors }} hover:underline" href="/categories/{{ . }}">{{ . }}</a>
+      {{ end }}
+    {{ end }}
+    <time class="block text-gray-500" datetime="{{ .Date.Format "02 January 2006" }}">{{ .Date.Format "02 January 2006" }}</time>
+  </div>
+  {{ with .Params.image }}
+    <img class="block aspect-video my-8 object-cover rounded-xl" src="{{ . }}" alt="">
+  {{ end }}
+  <div class="content text-justify">
+    {{ .Content }}
+  </div>
 </div>
 
 {{ end }}

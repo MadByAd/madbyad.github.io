@@ -16,3 +16,7 @@ categories:
 The project was originally created as a learning tool to help students better understand the structure of our solar system. By being able to view and explore the planets in a three-dimensional space, we wanted to make the subject easier to visualize and more engaging to explore. The app focuses on keeping the experience simple and accessible, making it suitable for both learning and casual exploration.
 
 Map of the Solar System runs directly in the browser, so there is no installation required. Whether you're using it as a learning resource or simply curious about our cosmic neighborhood, you can explore the solar system at your own pace. The app is available to play for free on [Itch.io](https://madbyad.itch.io/map-of-the-solar-system).
+
+---
+
+[Play now on Itch.io](https://madbyad.itch.io/map-of-the-solar-system)

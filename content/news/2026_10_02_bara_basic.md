@@ -31,4 +31,6 @@ WARNING: This game is not an educational game nor its a game made for children. 
 * Various kind of endings
 * Various kind of gamemodes
 
+---
+
 [Itch.io Download](https://madbyad.itch.io/bara-basic)
