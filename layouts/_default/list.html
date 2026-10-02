@@ -2,79 +2,83 @@
 
 <div class="w-full h-[70px]"></div>
 
-<h1>Read the News</h1>
+<div class="relative py-16 px-4 md:text-8xl sm:text-6xl text-4xl font-semibold mb-8">
+  <div
+    class="absolute top-0 w-full h-full opacity-15"
+    style="
+      background-color:rgba(0, 0, 0, 0.5);
+      background-image: url('/brand-pattern.jpg');
+      background-size: 256px;">
+  </div>
+  <div class="relative mx-auto max-w-[1000px]">
+    <h1>News</h1>
+  </div>
+</div>
 
-<div class="articles">
-  {{ range .Paginator.Pages }}
+<div class="flex flex-wrap justify-center gap-2 mb-8">
+  <a class="px-8 py-1 bg-gray-100 text-black font-semibold rounded-full transition hover:bg-sky-600 hover:text-white hover:underline" href="/news/">All</a>
+  <a class="px-8 py-1 bg-gray-100 text-black font-semibold rounded-full transition hover:bg-sky-600 hover:text-white hover:underline" href="/categories/product/">Product</a>
+  <a class="px-8 py-1 bg-gray-100 text-black font-semibold rounded-full transition hover:bg-sky-600 hover:text-white hover:underline" href="/categories/company/">Company</a>
+</div>
+
+<div>
+  <div class="articles mx-auto max-w-[1200px] flex flex-wrap justify-center gap-4 px-4">
+  {{ $paginator := .Paginate .Pages 10 }}
+  {{ range $paginator.Pages }}
+  <a class="max-w-[500px] relative group pb-4" href="{{ .RelPermalink }}">
     <article>
-
       {{ with .Params.image }}
-      <img src="{{ . }}" alt="{{ $.Title }}">
+        <div class="overflow-hidden rounded-lg">
+          <img class="rounded-lg duration-450 group-hover:scale-105" src="{{ . }}" alt="Thumbnail Post: {{ $.Title }}">
+        </div>
       {{ end }}
-
-      <div class="flex flex-col gap-4">
-
+      <div class="flex flex-col gap-2 pt-2">
         <!-- Categories -->
         {{ with .Params.categories }}
-        <div>
+          {{ $colorMap := dict
+            "company"     "bg-sky-200 text-sky-900"
+            "product"     "bg-emerald-200 text-emerald-900"
+            "development" "bg-purple-200 text-purple-900"
+          }}
+          {{ $defaultColor := "bg-gray-100 text-gray-800" }}
           {{ range . }}
-            <span>
-              {{ . }}
-            </span>
+            {{ $catKey := . | lower }}
+            {{ $colors := index $colorMap $catKey | default $defaultColor }}
+            <div class="absolute top-0 right-0 md:m-4 m-2 md:px-4 px-2 py-1 font-semibold text-xs rounded-full {{ $colors }}">{{ . }}</div>
           {{ end }}
-        </div>
         {{ end }}
-
-        <h2>
-          {{ .Title }}
-        </h2>
-
-        <time datetime="{{ .Date.Format "2006-01-02" }}">
-          {{ .Date.Format "2 January 2006" }}
-        </time>
-
-        <p>{{ .Summary }}</p>
-
-        {{ with .Params.tags }}
-          <div>
+        <time class="md:text-base text-xs text-gray-500" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+        <h2 class="md:text-xl text-lg font-semibold group-hover:underline">{{ .Title }}</h2>
+        <p class="md:text-sm text-xs text-gray-500">
+          {{ .Summary }}
+          {{ with .Params.tags }}
             {{ range . }}
-              <span>
-                #{{ . }}
-              </span>
+              <span>#{{ . }}</span>
             {{ end }}
-          </div>
-        {{ end }}
-
-        <a href="{{ .RelPermalink }}">
-          Baca Selengkapnya →
-        </a>
+          {{ end }}
+        </p>
       </div>
     </article>
-    <br>
+  </a>
   {{ end }}
+  </div>
 
   <!-- Pagination -->
-  <nav>
+  <nav class="flex items-center justify-center py-16 gap-4">
     {{ if .Paginator.HasPrev }}
-      <a href="{{ .Paginator.Prev.URL }}">
-        ← Sebelumnya
-      </a>
+      <a class="w-[100px] text-center py-2 bg-black text-white font-semibold rounded-full transition hover:bg-sky-600" href="{{ .Paginator.Prev.URL }}">Previous</a>
     {{ else }}
-      <div></div>
+      <div class="w-[100px]"></div>
     {{ end }}
-
     <span>
-      Halaman {{ .Paginator.PageNumber }} dari {{ .Paginator.TotalPages }}
+      Page {{ .Paginator.PageNumber }} / {{ .Paginator.TotalPages }}
     </span>
-
     {{ if .Paginator.HasNext }}
-      <a href="{{ .Paginator.Next.URL }}">
-        Selanjutnya →
-      </a>
+      <a class="w-[100px] text-center py-2 bg-black text-white font-semibold rounded-full transition hover:bg-sky-600" href="{{ .Paginator.Next.URL }}">Next</a>
     {{ else }}
-      <div></div>
+      <div class="w-[100px]"></div>
     {{ end }}
   </nav>
 </div>
 
-{{ end}}
+{{ end }}

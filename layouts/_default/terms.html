@@ -1,22 +1,18 @@
 {{ define "main" }}
 
-<div>
+<div class="w-full h-[70px]"></div>
 
-  <a href="/">← Kembali Ke Halaman Utama</a>
-
-  <h1>
-    {{ .Title }}
-  </h1>
-
-  <div>
+<div class="px-4 py-16 mx-auto max-w-[1200px]">
+  <a class="px-8 py-3 bg-black text-white font-semibold rounded-full transition hover:bg-sky-600" href="/">Back to Homepage</a>
+  <h1 class="py-16 font-semibold md:text-8xl sm:text-6xl text-4xl">{{ .Title }}</h1>
+  <div class="flex flex-wrap gap-2 text-sm">
     {{ range .Data.Terms.Alphabetical }}
-      <a href="{{ .Page.RelPermalink }}">
+      <a class="px-4 py-2 bg-gray-100 text-black font-medium rounded-full transition hover:bg-sky-600 hover:text-white hover:underline" href="{{ .Page.RelPermalink }}">
         {{ .Page.Title }}
         <span>({{ .Count }})</span>
       </a>
     {{ end }}
   </div>
-
 </div>
 
 {{ end }}
