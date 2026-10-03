@@ -2,6 +2,67 @@
 
 <div class="w-full h-[70px]"></div>
 
-<h1>Want To Talk With Us?</h1>
+<div class="mx-auto max-w-[600px] px-4 pt-16">
+  <h1 class="md:text-5xl sm:text-4xl text-3xl font-semibold">Want To Talk With Us?</h1>
+  <p class="py-4">Whether you have a question, want to work with us, or simply want to say hello, we'd love to hear from you.</p>
+  <hr class="border-gray-200">
+  <form
+    class="flex flex-col gap-4 pt-4 pb-16"
+    id="contactForm"
+    target="hidden_iframe"
+    action="https://docs.google.com/forms/d/e/1FAIpQLSenUg5QfhM_22Gw6B3tp0TJB4eXpm_FdrZPu_BoLYvv09lCrg/formResponse"
+    method="POST"
+    onsubmit="handleFormSubmit()">
+    <label for="name">Name</label>
+    <input class="p-2 bg-gray-100 border-t-2 border-gray-300 rounded-md" type="text" name="entry.1611080584" id="name" placeholder="Enter your name, ideally your full name">
+    <label for="email">Email</label>
+    <input class="p-2 bg-gray-100 border-t-2 border-gray-300 rounded-md" type="email" name="entry.273335127" id="email" placeholder="Enter your email address so we can contact you back">
+    <label for="inquiry">Inquiry (What do you want to discuss?)</label>
+    <select class="p-2 bg-gray-100 border border-gray-300 rounded-md" id="inquiry-type" name="entry.1504319660">
+      <option value="General Question">General Question</option>
+      <option value="Business Opportunity">Business Opportunity</option>
+      <option value="Partnership / Collaboration">Partnership / Collaboration</option>
+      <option value="Game Development / Outsourcing">Game Development / Outsourcing</option>
+      <option value="Educational / Student Inquiry">Educational / Student Inquiry</option>
+      <option value="Press / Media">Press / Media</option>
+      <option value="Game / Product Feedback">Game / Product Feedback</option>
+      <option value="Other">Other (something else?)</option>
+    </select>
+    <label for="message">Message</label>
+    <textarea class="p-2 bg-gray-100 border border-t-2 border-gray-300 rounded-md h-[300px]" name="entry.1436753053" id="message" placeholder="Write your message here in full detail"></textarea>
+    <button class="bg-black text-white font-semibold px-8 py-2 rounded-full cursor-pointer transition hover:bg-sky-600" type="submit">Submit</button>
+  </form>
+</div>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+<div id="thankYouModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center p-4 z-50">
+  <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center shadow-xl">
+    <h2 class="text-2xl font-bold text-gray-800 mb-2">Thank You!</h2>
+    <p class="text-gray-600 mb-6">Your message has been sent successfully. We will respond to your email as soon as possible.</p>
+    <button class="bg-black text-white font-semibold px-6 py-2 rounded-full transition hover:bg-sky-600" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<script>
+  function handleFormSubmit() {
+    setTimeout(() => {
+      document.getElementById('contactForm').reset();
+      const modal = document.getElementById('thankYouModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }, 100);
+  }
+  function closeModal() {
+    const modal = document.getElementById('thankYouModal');
+    modal.classList.remove('flex');
+    modal.classList.add('hidden');
+  }
+</script>
+
+<div class="text-lg text-gray-600 font-medium pb-16 mx-auto max-w-[600px] px-4">
+  <p>madbyad.io@gmail.com</p>
+  <address class="not-italic">Depok, West Java, Indonesia</address>
+</div>
 
 {{ end }}

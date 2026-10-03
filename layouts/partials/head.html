@@ -1,6 +1,3 @@
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>
   {{ if .IsHome }}
     MadByAd
@@ -13,6 +10,8 @@
   {{ partial "css.html" . }}
 {{ end }}
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="keywords" content="MadByAd, MadByAd Studio, MadByAd Developer, Game, Game Developer, Game Studio, Indie Game">
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 
