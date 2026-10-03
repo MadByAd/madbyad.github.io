@@ -1,7 +1,7 @@
 ---
 title: "Map of The Solar System"
 date: 2026-10-02
-image: "/splash_art/map_of_the_solar_system.jpg"
+image: "/splash_art/map_of_the_solar_system.webp"
 summary: "Map of The Solar System is a 3D Educational Web App for visualizing the solar system"
 tags:
   - Web Application

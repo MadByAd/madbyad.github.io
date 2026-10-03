@@ -1,7 +1,7 @@
 ---
 title: "Site Redesign: Update To The MadByAd Developer Identity"
 date: 2026-10-01
-image: "/thumbnail/site-update-thumbnail.jpg"
+image: "/thumbnail/site-update-thumbnail.webp"
 summary: "We've decided to redesign MadByAd developer identity & website entirely"
 tags:
   - Devlog

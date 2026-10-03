@@ -1,7 +1,7 @@
 ---
 title: "Pumpkin Nights: Multiplayer Horror Survival Game"
 date: 2026-10-02
-image: "/splash_art/pumpkin_nights.jpg"
+image: "/splash_art/pumpkin_nights.webp"
 summary: "Pumpkin Nights is a multiplayer horror survival game, can you and your friends survive against the pumpkin attack?"
 tags:
   - Game

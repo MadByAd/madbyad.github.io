@@ -1,7 +1,7 @@
 ---
 title: "Bara Basic in Arabic: a Horror Comedy Game"
 date: 2026-10-02
-image: "/splash_art/bara_basic.jpg"
+image: "/splash_art/bara_basic.webp"
 summary: "Bara Basic in Arabic and Learning is a horror comedy game set in an arabic schoolhouse, can you and your friends survive againts bara anger?"
 tags:
   - Game

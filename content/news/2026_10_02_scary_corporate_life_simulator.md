@@ -1,7 +1,7 @@
 ---
 title: "Scary Corporate Life Simulator"
 date: 2026-10-02
-image: "/splash_art/scary_corporate_life_simulator.jpg"
+image: "/splash_art/scary_corporate_life_simulator.webp"
 summary: "Scary Corporate Life Simulator is a point and click horror survival game set in a corporate office and job"
 tags:
   - Game
