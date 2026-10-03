@@ -19,6 +19,9 @@ html {
 .content h2 {
   font-size: 2rem;
 }
+.content h3 {
+  font-size: 1.35rem;
+}
 
 .content p {
   line-height: 1.65;
