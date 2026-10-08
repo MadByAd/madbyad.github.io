@@ -1,8 +1,8 @@
 ---
-title: "Project Block: MMO Craft-like Game In Development"
+title: "Project Block: A Craft-like Game In Development"
 date: 2026-10-03
 image: "/splash_art/project_block.webp"
-summary: "Project Block is an MMO Craft-like game that is currently in development"
+summary: "Project Block is a Craft-like game that is currently in development"
 tags:
   - Devlog
   - Gamedev
