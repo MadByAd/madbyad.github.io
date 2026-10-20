@@ -44,3 +44,8 @@ html {
   list-style: disc;
   margin-bottom: 1rem;
 }
+
+.content img {
+  border-radius: 16px;
+  margin-bottom: 1rem;
+}
